@@ -10,6 +10,7 @@ import { EmpList } from './components/employees/emp-list';
 import { EmpDetails } from './components/employees/emp-details';
 import { EmpForm } from './components/employees/emp-form';
 
+
 class App extends Component {
   render() {
     return (
@@ -31,7 +32,6 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route exact path="/employees/new" component={EmpForm} />
           <Route exact path="/employees/:id" component={EmpDetails} />
-          
         </Switch>
         
       </div>

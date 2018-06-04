@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { mockEmployees } from './emp-mock-data';
 import axios from 'axios';
 
 export class EmpDetails extends Component {

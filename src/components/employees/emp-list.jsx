@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { mockEmployees } from './emp-mock-data';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { EmpService } from '../../shared/services/emp-service';
 
 export class EmpList extends Component {
 
@@ -12,18 +11,19 @@ export class EmpList extends Component {
       employees: []
     };
  
+    this.empService = new EmpService();
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8080/api/employees')
-      .then((res) => {
-        this.setState({
-          employees: res.data
+    this.empService.getEmployees()
+        .then((res) => {
+          this.setState({
+            employees: res.data
+          })
         })
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .catch((err) => {
+          console.log(err);
+        });
   }
 
   render() {
