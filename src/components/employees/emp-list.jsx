@@ -16,14 +16,8 @@ export class EmpList extends Component {
 
   componentDidMount = () => {
     this.empService.getEmployees()
-        .then((res) => {
-          this.setState({
-            employees: res.data
-          })
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        .then(employees => this.setState({employees}))
+        .catch(err => console.log(err));
   }
 
   render() {
