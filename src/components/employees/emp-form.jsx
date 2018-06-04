@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import classnames from 'classnames';
 
 export class EmpForm extends Component {
   
@@ -68,7 +69,7 @@ export class EmpForm extends Component {
   render() {
     const empForm = (
             <form onSubmit={this.handleSubmit} className="ui form">
-                <div className="field">
+                <div className={classnames('field', { error: !!this.state.errors.empNo} )}>
                   <label>Emp No</label>
                   <input type="text"
                           name="empNo" 
@@ -76,7 +77,7 @@ export class EmpForm extends Component {
                           onChange={this.handleChange} />
                   <span>{this.state.errors.empNo}</span>
                 </div>
-                <div className="field">
+                <div className={classnames('field', { error: !!this.state.errors.firstName}) }>
                   <label>First Name</label>
                   <input type="text"
                           name="firstName"
@@ -84,7 +85,7 @@ export class EmpForm extends Component {
                           onChange={this.handleChange} />
                   <span>{this.state.errors.firstName}</span>
                 </div>
-                <div className="field">
+                <div className={classnames('field', { error: !!this.state.errors.lastName} )}>
                   <label>Last Name</label>
                   <input type="text"
                           name="lastName"
@@ -92,7 +93,7 @@ export class EmpForm extends Component {
                           onChange={this.handleChange} />
                   <span>{this.state.errors.lastName}</span>
                 </div>
-                <div className="field">
+                <div className={classnames('field', { error: !!this.state.errors.city} )}>
                   <label>City</label>
                   <input type="text"
                           name="city"
